@@ -1,0 +1,289 @@
+<!DOCTYPE HTML>
+<!--
+	Transitive by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>Transitive by TEMPLATED</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header" class="alt">
+				<div class="logo"><a href="index.html">Transitive <span>by TEMPLATED</span></a></div>
+				<a href="#menu" class="toggle"><span>Menu</span></a>
+			</header>
+
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="#one">Generic</a></li>
+					<li><a href="#two">Elements</a></li>
+				</ul>
+			</nav>
+
+		<!-- Banner -->
+		<!--
+			To use a video as your background, set data-video to the name of your video without
+			its extension (eg. images/banner). Your video must be available in both .mp4 and .webm
+			formats to work correctly.
+		-->
+			<section id="banner" data-video="images/banner">
+				<div class="inner">
+					<h1>Polls Speak!</h1>
+					<p>Explore Data from Presidential General Election Polls 2020.</p>
+					<a href="#one" class="button special scrolly">Get Started</a>
+				</div>
+			</section>
+
+		<!-- One -->
+			<section id="one" class="wrapper style2">
+				<div class="inner">
+					<div>
+						<div class="box">
+							<div class="image fit">
+								<img src="images/pic01.jpg" alt="" />
+							</div>
+							<div class="content">
+								<header class="align-center">
+									<h2>Introduction</h2>
+									<!-- <p>maecenas feugiat ex purus, quis volutpat lacus placerat</p> -->
+								</header>
+								<hr />
+								<p>US election 2020 is coming to coming. Since the end of 2018, thousands of polls on this cycle have been taking place all across the US.</p>
+								<p>Exploring the data about these polls gathered and published in <a href="https://projects.fivethirtyeight.com/polls-page/president_polls.csv">fivethirtyeight</a>, some intresting facts are found and shown here! </p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+
+		<!-- Two -->
+			<section id="two" class="wrapper style3">
+				<div class="inner">
+					<div id="flexgrid">
+						<div>
+							<header>
+								<h3>Tempus Feugiat</h3>
+							</header>
+							<p>Morbi interdum mollis sapien. Sed ac risus. Phasellus lacinia, magna a ullamcorper laoreet, lectus arcu</p>
+							<ul class="actions">
+								<li><a href="#" class="button alt">Learn More</a></li>
+							</ul>
+						</div>
+						<div>
+							<header>
+								<h3>Aliquam Nulla</h3>
+							</header>
+							<p>Ut convallis, sem sit amet interdum consectetuer, odio augue aliquam leo, nec dapibus tortor nibh sed </p>
+							<ul class="actions">
+								<li><a href="#" class="button alt">Learn More</a></li>
+							</ul>
+						</div>
+						<div>
+							<header>
+								<h3>Sed Magna</h3>
+							</header>
+							<p>Suspendisse mauris. Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula.</p>
+							<ul class="actions">
+								<li><a href="#" class="button alt">Learn More</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
+		
+			<section id="three" class="wrapper style2">
+				<div class="inner">
+					<div>
+						<div class="box">
+							<div class="image fit">
+								<img src="images/pic02.jpg" alt="" />
+							</div>
+							<div class="content">
+								<header class="align-center">
+									<h2>Who is most likely to win Trump?</h2>
+									<!-- <p>maecenas feugiat ex purus, quis volutpat lacus placerat</p> -->
+								</header>
+								<hr />
+								<p>US election 2020 is coming to coming. Since the end of 2018, thousands of polls on this cycle have been taking place all across the US.</p>
+								<p>Exploring the data about these polls gathered and published in <h href="https://projects.fivethirtyeight.com/polls-page/president_polls.csv">fivethirtyeight</h>, some intresting facts are found! </p>
+								<div id="vis1" width="1600px"></div>
+
+								<script type="text/javascript">
+   									let jsonSpec="chart1.json";
+							
+   									vegaEmbed('#vis1', jsonSpec,{theme: 'latimes',"renderer":"svg"}).then(function(result) {
+   										}).catch(console.error);
+								</script>
+
+							
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		
+			<!-- Two -->
+			<section id="four" class="wrapper style3">
+				<div class="inner">
+					<div id="flexgrid">
+						<div>
+							<header>
+								<h3>Tempus Feugiat</h3>
+							</header>
+							<p>Morbi interdum mollis sapien. Sed ac risus. Phasellus lacinia, magna a ullamcorper laoreet, lectus arcu</p>
+							<ul class="actions">
+								<li><a href="#" class="button alt">Learn More</a></li>
+							</ul>
+						</div>
+						<div>
+							<header>
+								<h3>Aliquam Nulla</h3>
+							</header>
+							<p>Ut convallis, sem sit amet interdum consectetuer, odio augue aliquam leo, nec dapibus tortor nibh sed </p>
+							<ul class="actions">
+								<li><a href="#" class="button alt">Learn More</a></li>
+							</ul>
+						</div>
+						<div>
+							<header>
+								<h3>Sed Magna</h3>
+							</header>
+							<p>Suspendisse mauris. Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula.</p>
+							<ul class="actions">
+								<li><a href="#" class="button alt">Learn More</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section id="five" class="wrapper style2">
+				<div class="inner">
+					<div>
+						<div class="box">
+							<div class="image fit">
+								<img src="images/pic03.jpg" alt="" />
+							</div>
+							<div class="content">
+								<header class="align-center">
+									<h2>Is sponsoring changing the results?</h2>
+									<!-- <p>maecenas feugiat ex purus, quis volutpat lacus placerat</p> -->
+								</header>
+								<hr />
+								<p>US election 2020 is coming to coming. Since the end of 2018, thousands of polls on this cycle have been taking place all across the US.</p>
+								<p>Exploring the data about these polls gathered and published in <h href="https://projects.fivethirtyeight.com/polls-page/president_polls.csv">fivethirtyeight</h>, some intresting facts are found! </p>
+								<div id="vis2" width="300px"></div>
+
+								<script type="text/javascript">
+   									let jsonSpec2="chart2.json";
+							
+   									vegaEmbed('#vis2', jsonSpec2,{theme: 'latimes',"renderer":"svg"}).then(function(result) {
+   										}).catch(console.error);
+								</script>
+
+							
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			
+			<!-- Two -->
+			<section id="six" class="wrapper style3">
+				<div class="inner">
+					<div id="flexgrid">
+						<div>
+							<header>
+								<h3>Tempus Feugiat</h3>
+							</header>
+							<p>Morbi interdum mollis sapien. Sed ac risus. Phasellus lacinia, magna a ullamcorper laoreet, lectus arcu</p>
+							<ul class="actions">
+								<li><a href="#" class="button alt">Learn More</a></li>
+							</ul>
+						</div>
+						<div>
+							<header>
+								<h3>Aliquam Nulla</h3>
+							</header>
+							<p>Ut convallis, sem sit amet interdum consectetuer, odio augue aliquam leo, nec dapibus tortor nibh sed </p>
+							<ul class="actions">
+								<li><a href="#" class="button alt">Learn More</a></li>
+							</ul>
+						</div>
+						<div>
+							<header>
+								<h3>Sed Magna</h3>
+							</header>
+							<p>Suspendisse mauris. Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula.</p>
+							<ul class="actions">
+								<li><a href="#" class="button alt">Learn More</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section id="seven" class="wrapper style2">
+				<div class="inner">
+					<div>
+						<div class="box">
+							<div class="image fit">
+								<img src="images/pic04.jpg" alt="" />
+							</div>
+							<div class="content">
+								<header class="align-center">
+									<h2>Is sponsoring changing the results?</h2>
+									<!-- <p>maecenas feugiat ex purus, quis volutpat lacus placerat</p> -->
+								</header>
+								<hr />
+								<p>US election 2020 is coming to coming. Since the end of 2018, thousands of polls on this cycle have been taking place all across the US.</p>
+								<p>Exploring the data about these polls gathered and published in <h href="https://projects.fivethirtyeight.com/polls-page/president_polls.csv">fivethirtyeight</h>, some intresting facts are found! </p>
+								<div id="vis3" width="300px"></div>
+
+								<script type="text/javascript">
+   									let jsonSpec3="chart3.json";
+							
+   									vegaEmbed('#vis3', jsonSpec3,{theme: 'latimes',"renderer":"svg"}).then(function(result) {
+   										}).catch(console.error);
+								</script>
+
+							
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper style3" style="height: 20px;">
+				<div class="inner">
+					<div class="copyright">
+						&copy;2020 theoliao. theoliao1998@gmail.com<br/>
+						&copy; Untitled Design: <a href="https://templated.co/">TEMPLATED</a>.
+					</div>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
