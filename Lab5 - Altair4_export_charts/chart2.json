@@ -2,7 +2,8 @@
   "config": {
     "view": {
       "continuousWidth": 400,
-      "continuousHeight": 300
+      "continuousHeight": 300,
+      "strokeWidth": 0
     }
   },
   "hconcat": [
@@ -23,7 +24,7 @@
                 "opacity": {
                   "condition": {
                     "value": 1,
-                    "selection": "selector163"
+                    "selection": "selector029"
                   },
                   "value": 0.6
                 },
@@ -54,9 +55,6 @@
                 },
                 "y": {
                   "type": "nominal",
-                  "axis": {
-                    "title": ""
-                  },
                   "field": "answer",
                   "sort": [
                     "Trump",
@@ -70,7 +68,7 @@
               },
               "height": 240,
               "selection": {
-                "selector163": {
+                "selector029": {
                   "type": "single",
                   "encodings": [
                     "y"
@@ -82,7 +80,7 @@
                 }
               },
               "title": "Sponsoring Rate among Wins",
-              "width": 400
+              "width": 300
             },
             {
               "mark": {
@@ -111,7 +109,7 @@
                 "y": {
                   "type": "nominal",
                   "axis": {
-                    "title": ""
+                    "title": "candidate"
                   },
                   "field": "answer",
                   "sort": [
@@ -163,7 +161,7 @@
               },
               "height": 40,
               "title": "Overall Sponsoring Rate",
-              "width": 400
+              "width": 300
             },
             {
               "mark": {
@@ -196,11 +194,15 @@
       ]
     },
     {
-      "mark": {
-        "type": "bar",
-        "color": "purple"
-      },
+      "mark": "bar",
       "encoding": {
+        "color": {
+          "type": "nominal",
+          "field": "fte_grade",
+          "scale": {
+            "scheme": "rainbow"
+          }
+        },
         "x": {
           "type": "quantitative",
           "axis": {
@@ -210,18 +212,30 @@
         },
         "y": {
           "type": "nominal",
-          "field": "sponsors",
-          "sort": "-x"
+          "field": "fte_grade",
+          "sort": [
+            "A+",
+            "A",
+            "A-",
+            "A/B",
+            "B+",
+            "B",
+            "B-",
+            "B/C",
+            "C+",
+            "C",
+            "C-",
+            "C/D",
+            "unknown"
+          ]
         }
       },
-      "height": 330,
+      "height": 300,
+      "title": "Grades of polls the selected candidate wins",
       "transform": [
         {
-          "filter": "(datum.sponsors !== null)"
-        },
-        {
           "filter": {
-            "selection": "selector163"
+            "selection": "selector029"
           }
         },
         {
@@ -232,7 +246,7 @@
             }
           ],
           "groupby": [
-            "sponsors"
+            "fte_grade"
           ]
         }
       ],
@@ -240,7 +254,7 @@
     }
   ],
   "data": {
-    "name": "data-4a9a7066f9cdca323f96451a9991673f"
+    "name": "data-f6185d5b7ecf488905b938cea582b9d9"
   },
   "resolve": {
     "scale": {
@@ -249,7 +263,7 @@
   },
   "$schema": "https://vega.github.io/schema/vega-lite/v4.0.2.json",
   "datasets": {
-    "data-4a9a7066f9cdca323f96451a9991673f": [
+    "data-f6185d5b7ecf488905b938cea582b9d9": [
       {
         "poll_id": 57026,
         "score": 0.25,
@@ -262,7 +276,8 @@
         "sponsored": "Yes",
         "sponsors": "DEM",
         "score_norm": 0.5292572685072074,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B"
       },
       {
         "poll_id": 57026,
@@ -276,7 +291,8 @@
         "sponsored": "Yes",
         "sponsors": "DEM",
         "score_norm": 0.4752828663793102,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B"
       },
       {
         "poll_id": 57026,
@@ -290,7 +306,8 @@
         "sponsored": "Yes",
         "sponsors": "DEM",
         "score_norm": 0.2610572615459803,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B"
       },
       {
         "poll_id": 57026,
@@ -304,7 +321,8 @@
         "sponsored": "Yes",
         "sponsors": "DEM",
         "score_norm": 0.34998356884653303,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B"
       },
       {
         "poll_id": 57275,
@@ -318,7 +336,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B"
       },
       {
         "poll_id": 57407,
@@ -332,7 +351,8 @@
         "sponsored": "Yes",
         "sponsors": "New Hampshire Journal",
         "score_norm": 0.4752828663793102,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 57407,
@@ -346,7 +366,8 @@
         "sponsored": "Yes",
         "sponsors": "New Hampshire Journal",
         "score_norm": 0.2610572615459803,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 57407,
@@ -360,7 +381,8 @@
         "sponsored": "Yes",
         "sponsors": "New Hampshire Journal",
         "score_norm": 0.30205535078403206,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 57419,
@@ -374,7 +396,8 @@
         "sponsored": "Yes",
         "sponsors": "Courageous Conservatives PAC",
         "score_norm": 0.34998356884653303,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 57427,
@@ -388,7 +411,8 @@
         "sponsored": "Yes",
         "sponsors": "Detroit News | WDIV-TV",
         "score_norm": 0.5292572685072074,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 57427,
@@ -402,7 +426,8 @@
         "sponsored": "Yes",
         "sponsors": "Detroit News | WDIV-TV",
         "score_norm": 0.4752828663793102,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 57427,
@@ -416,7 +441,8 @@
         "sponsored": "Yes",
         "sponsors": "Detroit News | WDIV-TV",
         "score_norm": 0.2610572615459803,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 57427,
@@ -430,7 +456,8 @@
         "sponsored": "Yes",
         "sponsors": "Detroit News | WDIV-TV",
         "score_norm": 0.30205535078403206,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 57445,
@@ -444,7 +471,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 57528,
@@ -458,7 +486,8 @@
         "sponsored": "Yes",
         "sponsors": "Jeff Dalton",
         "score_norm": 0.34998356884653303,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B"
       },
       {
         "poll_id": 57543,
@@ -472,7 +501,8 @@
         "sponsored": "Yes",
         "sponsors": "Civitas Institute",
         "score_norm": 0.34998356884653303,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 57556,
@@ -486,7 +516,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 57574,
@@ -500,7 +531,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.7389427384540197,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 57601,
@@ -514,7 +546,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B+"
       },
       {
         "poll_id": 57612,
@@ -528,7 +561,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 57640,
@@ -542,7 +576,8 @@
         "sponsored": "Yes",
         "sponsors": "SMART Transportation Division",
         "score_norm": 0.4752828663793102,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 57656,
@@ -556,7 +591,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.47074273149279255,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 57656,
@@ -570,7 +606,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.7389427384540197,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 57697,
@@ -584,7 +621,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.47074273149279255,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 57697,
@@ -598,7 +636,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.7389427384540197,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 57742,
@@ -612,7 +651,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 57752,
@@ -626,7 +666,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.47074273149279255,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "C/D"
       },
       {
         "poll_id": 57752,
@@ -640,7 +681,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.5247171336206897,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "C/D"
       },
       {
         "poll_id": 57752,
@@ -654,7 +696,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.7389427384540197,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "C/D"
       },
       {
         "poll_id": 57753,
@@ -668,7 +711,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "C/D"
       },
       {
         "poll_id": 57754,
@@ -682,7 +726,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.47074273149279255,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "C/D"
       },
       {
         "poll_id": 57754,
@@ -696,7 +741,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.7389427384540197,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "C/D"
       },
       {
         "poll_id": 57754,
@@ -710,7 +756,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "C/D"
       },
       {
         "poll_id": 57788,
@@ -724,7 +771,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.47074273149279255,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 57788,
@@ -738,7 +786,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.5247171336206897,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 57788,
@@ -752,7 +801,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.5247171336206897,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 57788,
@@ -766,7 +816,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.7389427384540197,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 57788,
@@ -780,7 +831,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.697944649215968,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 57799,
@@ -794,7 +846,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 57834,
@@ -808,7 +861,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.47074273149279255,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 57834,
@@ -822,7 +876,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.7389427384540197,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 57834,
@@ -836,7 +891,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.697944649215968,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 57931,
@@ -850,7 +906,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.7389427384540197,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 57932,
@@ -864,7 +921,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.7389427384540197,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 57933,
@@ -878,7 +936,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.7389427384540197,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 57947,
@@ -892,7 +951,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.47074273149279255,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "C"
       },
       {
         "poll_id": 57947,
@@ -906,7 +966,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.6637423386612187,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "C"
       },
       {
         "poll_id": 57947,
@@ -920,7 +981,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.5247171336206897,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "C"
       },
       {
         "poll_id": 57947,
@@ -934,7 +996,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.5247171336206897,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "C"
       },
       {
         "poll_id": 57947,
@@ -948,7 +1011,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.7389427384540197,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "C"
       },
       {
         "poll_id": 57947,
@@ -962,7 +1026,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.697944649215968,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "C"
       },
       {
         "poll_id": 57962,
@@ -976,7 +1041,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 58013,
@@ -990,7 +1056,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 58044,
@@ -1004,7 +1071,8 @@
         "sponsored": "Yes",
         "sponsors": "Americans for Fair Skies",
         "score_norm": 0.34998356884653303,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 58045,
@@ -1018,7 +1086,8 @@
         "sponsored": "Yes",
         "sponsors": "Americans for Fair Skies",
         "score_norm": 0.34998356884653303,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 58046,
@@ -1032,7 +1101,8 @@
         "sponsored": "Yes",
         "sponsors": "Americans for Fair Skies",
         "score_norm": 0.34998356884653303,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 58047,
@@ -1046,7 +1116,8 @@
         "sponsored": "Yes",
         "sponsors": "Americans for Fair Skies",
         "score_norm": 0.34998356884653303,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 58048,
@@ -1060,7 +1131,8 @@
         "sponsored": "Yes",
         "sponsors": "Americans for Fair Skies",
         "score_norm": 0.5292572685072074,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 58049,
@@ -1074,7 +1146,8 @@
         "sponsored": "Yes",
         "sponsors": "Americans for Fair Skies",
         "score_norm": 0.5292572685072074,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 58082,
@@ -1088,7 +1161,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.47074273149279255,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B+"
       },
       {
         "poll_id": 58082,
@@ -1102,7 +1176,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.6637423386612187,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B+"
       },
       {
         "poll_id": 58082,
@@ -1116,7 +1191,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.5247171336206897,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B+"
       },
       {
         "poll_id": 58082,
@@ -1130,7 +1206,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.7389427384540197,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B+"
       },
       {
         "poll_id": 58082,
@@ -1144,7 +1221,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B+"
       },
       {
         "poll_id": 58082,
@@ -1158,7 +1236,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.697944649215968,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B+"
       },
       {
         "poll_id": 58117,
@@ -1172,7 +1251,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 58187,
@@ -1186,7 +1266,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.47074273149279255,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 58187,
@@ -1200,7 +1281,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.6637423386612187,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 58187,
@@ -1214,7 +1296,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.7389427384540197,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 58187,
@@ -1228,7 +1311,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 58187,
@@ -1242,7 +1326,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.697944649215968,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 58192,
@@ -1256,7 +1341,8 @@
         "sponsored": "Yes",
         "sponsors": "Detroit News | WDIV-TV",
         "score_norm": 0.5292572685072074,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 58198,
@@ -1270,7 +1356,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B+"
       },
       {
         "poll_id": 58390,
@@ -1284,7 +1371,8 @@
         "sponsored": "Yes",
         "sponsors": "North Carolina Republican Party",
         "score_norm": 0.34998356884653303,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "C/D"
       },
       {
         "poll_id": 58399,
@@ -1298,7 +1386,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.5247171336206897,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 58399,
@@ -1312,7 +1401,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.5247171336206897,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 58452,
@@ -1326,7 +1416,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.47074273149279255,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B+"
       },
       {
         "poll_id": 58465,
@@ -1340,7 +1431,8 @@
         "sponsored": "Yes",
         "sponsors": "The Post and Courier",
         "score_norm": 0.34998356884653303,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "C"
       },
       {
         "poll_id": 58473,
@@ -1354,7 +1446,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "C+"
       },
       {
         "poll_id": 58482,
@@ -1368,7 +1461,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.47074273149279255,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "C/D"
       },
       {
         "poll_id": 58482,
@@ -1382,7 +1476,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.7389427384540197,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "C/D"
       },
       {
         "poll_id": 58482,
@@ -1396,7 +1491,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "C/D"
       },
       {
         "poll_id": 58482,
@@ -1410,7 +1506,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.697944649215968,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "C/D"
       },
       {
         "poll_id": 58483,
@@ -1424,7 +1521,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "C/D"
       },
       {
         "poll_id": 58484,
@@ -1438,7 +1536,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "C/D"
       },
       {
         "poll_id": 58488,
@@ -1452,7 +1551,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.47074273149279255,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B+"
       },
       {
         "poll_id": 58488,
@@ -1466,7 +1566,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.6637423386612187,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B+"
       },
       {
         "poll_id": 58488,
@@ -1480,7 +1581,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.5247171336206897,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B+"
       },
       {
         "poll_id": 58488,
@@ -1494,7 +1596,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.5247171336206897,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B+"
       },
       {
         "poll_id": 58488,
@@ -1508,7 +1611,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.7389427384540197,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B+"
       },
       {
         "poll_id": 58488,
@@ -1522,7 +1626,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.697944649215968,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B+"
       },
       {
         "poll_id": 58500,
@@ -1536,7 +1641,8 @@
         "sponsored": "Yes",
         "sponsors": "Florida Politics",
         "score_norm": 0.5292572685072074,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "C+"
       },
       {
         "poll_id": 58512,
@@ -1550,7 +1656,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B"
       },
       {
         "poll_id": 58565,
@@ -1564,7 +1671,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.47074273149279255,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "C+"
       },
       {
         "poll_id": 58565,
@@ -1578,7 +1686,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.6637423386612187,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "C+"
       },
       {
         "poll_id": 58565,
@@ -1592,7 +1701,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.5247171336206897,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "C+"
       },
       {
         "poll_id": 58565,
@@ -1606,7 +1716,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.7389427384540197,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "C+"
       },
       {
         "poll_id": 58565,
@@ -1620,7 +1731,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.697944649215968,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "C+"
       },
       {
         "poll_id": 58733,
@@ -1634,7 +1746,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B+"
       },
       {
         "poll_id": 58748,
@@ -1648,7 +1761,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.47074273149279255,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "unknown"
       },
       {
         "poll_id": 58748,
@@ -1662,7 +1776,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.5247171336206897,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "unknown"
       },
       {
         "poll_id": 58748,
@@ -1676,7 +1791,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.6637423386612187,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "unknown"
       },
       {
         "poll_id": 58748,
@@ -1690,7 +1806,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.5247171336206897,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "unknown"
       },
       {
         "poll_id": 58748,
@@ -1704,7 +1821,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.7389427384540197,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "unknown"
       },
       {
         "poll_id": 58748,
@@ -1718,7 +1836,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.697944649215968,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "unknown"
       },
       {
         "poll_id": 58764,
@@ -1732,7 +1851,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 58788,
@@ -1746,7 +1866,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 58821,
@@ -1760,7 +1881,8 @@
         "sponsored": "Yes",
         "sponsors": "Dallas Morning News",
         "score_norm": 0.34998356884653303,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 58823,
@@ -1774,7 +1896,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 58836,
@@ -1788,7 +1911,8 @@
         "sponsored": "Yes",
         "sponsors": "KGTV-TV (California) | San Diego Union-Tribune",
         "score_norm": 0.5292572685072074,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A"
       },
       {
         "poll_id": 58836,
@@ -1802,7 +1926,8 @@
         "sponsored": "Yes",
         "sponsors": "KGTV-TV (California) | San Diego Union-Tribune",
         "score_norm": 0.3362576613387814,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A"
       },
       {
         "poll_id": 58836,
@@ -1816,7 +1941,8 @@
         "sponsored": "Yes",
         "sponsors": "KGTV-TV (California) | San Diego Union-Tribune",
         "score_norm": 0.4752828663793102,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A"
       },
       {
         "poll_id": 58836,
@@ -1830,7 +1956,8 @@
         "sponsored": "Yes",
         "sponsors": "KGTV-TV (California) | San Diego Union-Tribune",
         "score_norm": 0.4752828663793102,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A"
       },
       {
         "poll_id": 58836,
@@ -1844,7 +1971,8 @@
         "sponsored": "Yes",
         "sponsors": "KGTV-TV (California) | San Diego Union-Tribune",
         "score_norm": 0.2610572615459803,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A"
       },
       {
         "poll_id": 58836,
@@ -1858,7 +1986,8 @@
         "sponsored": "Yes",
         "sponsors": "KGTV-TV (California) | San Diego Union-Tribune",
         "score_norm": 0.30205535078403206,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A"
       },
       {
         "poll_id": 58836,
@@ -1872,7 +2001,8 @@
         "sponsored": "Yes",
         "sponsors": "KGTV-TV (California) | San Diego Union-Tribune",
         "score_norm": 0.4752828663793102,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A"
       },
       {
         "poll_id": 58837,
@@ -1886,7 +2016,8 @@
         "sponsored": "Yes",
         "sponsors": "24/7 Wall St.",
         "score_norm": 0.5292572685072074,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "C"
       },
       {
         "poll_id": 58837,
@@ -1900,7 +2031,8 @@
         "sponsored": "Yes",
         "sponsors": "24/7 Wall St.",
         "score_norm": 0.3362576613387814,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "C"
       },
       {
         "poll_id": 58837,
@@ -1914,7 +2046,8 @@
         "sponsored": "Yes",
         "sponsors": "24/7 Wall St.",
         "score_norm": 0.4752828663793102,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "C"
       },
       {
         "poll_id": 58837,
@@ -1928,7 +2061,8 @@
         "sponsored": "Yes",
         "sponsors": "24/7 Wall St.",
         "score_norm": 0.2610572615459803,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "C"
       },
       {
         "poll_id": 58837,
@@ -1942,7 +2076,8 @@
         "sponsored": "Yes",
         "sponsors": "24/7 Wall St.",
         "score_norm": 0.30205535078403206,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "C"
       },
       {
         "poll_id": 58840,
@@ -1956,7 +2091,8 @@
         "sponsored": "Yes",
         "sponsors": "Civitas Institute",
         "score_norm": 0.34998356884653303,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A"
       },
       {
         "poll_id": 58845,
@@ -1970,7 +2106,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 58891,
@@ -1984,7 +2121,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.47074273149279255,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "C+"
       },
       {
         "poll_id": 58891,
@@ -1998,7 +2136,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.6637423386612187,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "C+"
       },
       {
         "poll_id": 58891,
@@ -2012,7 +2151,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.5247171336206897,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "C+"
       },
       {
         "poll_id": 58891,
@@ -2026,7 +2166,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.7389427384540197,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "C+"
       },
       {
         "poll_id": 58891,
@@ -2040,7 +2181,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.697944649215968,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "C+"
       },
       {
         "poll_id": 58900,
@@ -2054,7 +2196,8 @@
         "sponsored": "Yes",
         "sponsors": "Civitas Institute",
         "score_norm": 0.34998356884653303,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 58918,
@@ -2068,7 +2211,8 @@
         "sponsored": "Yes",
         "sponsors": "24/7 Wall St.",
         "score_norm": 0.34998356884653303,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "C"
       },
       {
         "poll_id": 58930,
@@ -2082,7 +2226,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.47074273149279255,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 58930,
@@ -2096,7 +2241,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.6637423386612187,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 58930,
@@ -2110,7 +2256,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.5247171336206897,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 58930,
@@ -2124,7 +2271,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.7389427384540197,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 58930,
@@ -2138,7 +2286,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.697944649215968,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 58933,
@@ -2152,7 +2301,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "C+"
       },
       {
         "poll_id": 58960,
@@ -2166,7 +2316,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 59437,
@@ -2180,7 +2331,8 @@
         "sponsored": "Yes",
         "sponsors": "Missouri Scout",
         "score_norm": 0.34998356884653303,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "C-"
       },
       {
         "poll_id": 59450,
@@ -2194,7 +2346,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.47074273149279255,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B+"
       },
       {
         "poll_id": 59450,
@@ -2208,7 +2361,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.5247171336206897,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B+"
       },
       {
         "poll_id": 59450,
@@ -2222,7 +2376,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.7389427384540197,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B+"
       },
       {
         "poll_id": 59450,
@@ -2236,7 +2391,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.697944649215968,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B+"
       },
       {
         "poll_id": 59465,
@@ -2250,7 +2406,8 @@
         "sponsored": "Yes",
         "sponsors": "Utah Policy",
         "score_norm": 0.34998356884653303,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 59488,
@@ -2264,7 +2421,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.47074273149279255,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A/B"
       },
       {
         "poll_id": 59488,
@@ -2278,7 +2436,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.5247171336206897,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A/B"
       },
       {
         "poll_id": 59488,
@@ -2292,7 +2451,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.7389427384540197,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A/B"
       },
       {
         "poll_id": 59488,
@@ -2306,7 +2466,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.697944649215968,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A/B"
       },
       {
         "poll_id": 59522,
@@ -2320,7 +2481,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.47074273149279255,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 59522,
@@ -2334,7 +2496,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.5247171336206897,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 59522,
@@ -2348,7 +2511,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.7389427384540197,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 59522,
@@ -2362,7 +2526,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 59522,
@@ -2376,7 +2541,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.5247171336206897,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 59523,
@@ -2390,7 +2556,8 @@
         "sponsored": "Yes",
         "sponsors": "Univision",
         "score_norm": 0.5292572685072074,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "unknown"
       },
       {
         "poll_id": 59523,
@@ -2404,7 +2571,8 @@
         "sponsored": "Yes",
         "sponsors": "Univision",
         "score_norm": 0.4752828663793102,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "unknown"
       },
       {
         "poll_id": 59523,
@@ -2418,7 +2586,8 @@
         "sponsored": "Yes",
         "sponsors": "Univision",
         "score_norm": 0.4752828663793102,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "unknown"
       },
       {
         "poll_id": 59523,
@@ -2432,7 +2601,8 @@
         "sponsored": "Yes",
         "sponsors": "Univision",
         "score_norm": 0.4752828663793102,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "unknown"
       },
       {
         "poll_id": 59523,
@@ -2446,7 +2616,8 @@
         "sponsored": "Yes",
         "sponsors": "Univision",
         "score_norm": 0.2610572615459803,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "unknown"
       },
       {
         "poll_id": 59523,
@@ -2460,7 +2631,8 @@
         "sponsored": "Yes",
         "sponsors": "Univision",
         "score_norm": 0.30205535078403206,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "unknown"
       },
       {
         "poll_id": 59537,
@@ -2474,7 +2646,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "unknown"
       },
       {
         "poll_id": 59556,
@@ -2488,7 +2661,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.47074273149279255,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "C/D"
       },
       {
         "poll_id": 59556,
@@ -2502,7 +2676,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.7389427384540197,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "C/D"
       },
       {
         "poll_id": 59556,
@@ -2516,7 +2691,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.697944649215968,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "C/D"
       },
       {
         "poll_id": 59557,
@@ -2530,7 +2706,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "C/D"
       },
       {
         "poll_id": 59558,
@@ -2544,7 +2721,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.47074273149279255,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "C/D"
       },
       {
         "poll_id": 59558,
@@ -2558,7 +2736,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.7389427384540197,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "C/D"
       },
       {
         "poll_id": 59558,
@@ -2572,7 +2751,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.697944649215968,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "C/D"
       },
       {
         "poll_id": 59573,
@@ -2586,7 +2766,8 @@
         "sponsored": "Yes",
         "sponsors": "AARP",
         "score_norm": 0.5292572685072074,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 59584,
@@ -2600,7 +2781,8 @@
         "sponsored": "Yes",
         "sponsors": "AARP",
         "score_norm": 0.5292572685072074,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 59585,
@@ -2614,7 +2796,8 @@
         "sponsored": "Yes",
         "sponsors": "AARP",
         "score_norm": 0.5292572685072074,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 59586,
@@ -2628,7 +2811,8 @@
         "sponsored": "Yes",
         "sponsors": "AARP",
         "score_norm": 0.34998356884653303,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 59587,
@@ -2642,7 +2826,8 @@
         "sponsored": "Yes",
         "sponsors": "AARP",
         "score_norm": 0.5292572685072074,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 59591,
@@ -2656,7 +2841,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.47074273149279255,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 59591,
@@ -2670,7 +2856,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.5247171336206897,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 59591,
@@ -2684,7 +2871,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.7389427384540197,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 59591,
@@ -2698,7 +2886,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.697944649215968,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 59596,
@@ -2712,7 +2901,8 @@
         "sponsored": "Yes",
         "sponsors": "KGTV-TV (California) | San Diego Union-Tribune",
         "score_norm": 0.5292572685072074,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A"
       },
       {
         "poll_id": 59596,
@@ -2726,7 +2916,8 @@
         "sponsored": "Yes",
         "sponsors": "KGTV-TV (California) | San Diego Union-Tribune",
         "score_norm": 0.4752828663793102,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A"
       },
       {
         "poll_id": 59596,
@@ -2740,7 +2931,8 @@
         "sponsored": "Yes",
         "sponsors": "KGTV-TV (California) | San Diego Union-Tribune",
         "score_norm": 0.4752828663793102,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A"
       },
       {
         "poll_id": 59596,
@@ -2754,7 +2946,8 @@
         "sponsored": "Yes",
         "sponsors": "KGTV-TV (California) | San Diego Union-Tribune",
         "score_norm": 0.2610572615459803,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A"
       },
       {
         "poll_id": 59596,
@@ -2768,7 +2961,8 @@
         "sponsored": "Yes",
         "sponsors": "KGTV-TV (California) | San Diego Union-Tribune",
         "score_norm": 0.30205535078403206,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A"
       },
       {
         "poll_id": 59598,
@@ -2782,7 +2976,8 @@
         "sponsored": "Yes",
         "sponsors": "SMART Local 359",
         "score_norm": 0.34998356884653303,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 59604,
@@ -2796,7 +2991,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 59616,
@@ -2810,7 +3006,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 59627,
@@ -2824,7 +3021,8 @@
         "sponsored": "Yes",
         "sponsors": "Missouri Scout",
         "score_norm": 0.34998356884653303,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "C-"
       },
       {
         "poll_id": 59725,
@@ -2838,7 +3036,8 @@
         "sponsored": "Yes",
         "sponsors": "University of Mary Washington",
         "score_norm": 0.5292572685072074,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 59725,
@@ -2852,7 +3051,8 @@
         "sponsored": "Yes",
         "sponsors": "University of Mary Washington",
         "score_norm": 0.4752828663793102,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 59725,
@@ -2866,7 +3066,8 @@
         "sponsored": "Yes",
         "sponsors": "University of Mary Washington",
         "score_norm": 0.2610572615459803,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 59725,
@@ -2880,7 +3081,8 @@
         "sponsored": "Yes",
         "sponsors": "University of Mary Washington",
         "score_norm": 0.30205535078403206,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 59737,
@@ -2894,7 +3096,8 @@
         "sponsored": "Yes",
         "sponsors": "MIRS News Service",
         "score_norm": 0.5292572685072074,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 59820,
@@ -2908,7 +3111,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.47074273149279255,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 59820,
@@ -2922,7 +3126,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.7389427384540197,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 59820,
@@ -2936,7 +3141,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.697944649215968,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 59858,
@@ -2950,7 +3156,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.47074273149279255,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 59858,
@@ -2964,7 +3171,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.7389427384540197,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 59858,
@@ -2978,7 +3186,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.697944649215968,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 59896,
@@ -2992,7 +3201,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "unknown"
       },
       {
         "poll_id": 59917,
@@ -3006,7 +3216,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.47074273149279255,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B"
       },
       {
         "poll_id": 59917,
@@ -3020,7 +3231,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.5247171336206897,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B"
       },
       {
         "poll_id": 59917,
@@ -3034,7 +3246,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.7389427384540197,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B"
       },
       {
         "poll_id": 59917,
@@ -3048,7 +3261,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B"
       },
       {
         "poll_id": 59917,
@@ -3062,7 +3276,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.697944649215968,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B"
       },
       {
         "poll_id": 59934,
@@ -3076,7 +3291,8 @@
         "sponsored": "Yes",
         "sponsors": "Hartford Courant",
         "score_norm": 0.5292572685072074,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 59934,
@@ -3090,7 +3306,8 @@
         "sponsored": "Yes",
         "sponsors": "Hartford Courant",
         "score_norm": 0.3362576613387814,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 59934,
@@ -3104,7 +3321,8 @@
         "sponsored": "Yes",
         "sponsors": "Hartford Courant",
         "score_norm": 0.4752828663793102,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 59934,
@@ -3118,7 +3336,8 @@
         "sponsored": "Yes",
         "sponsors": "Hartford Courant",
         "score_norm": 0.2610572615459803,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 59934,
@@ -3132,7 +3351,8 @@
         "sponsored": "Yes",
         "sponsors": "Hartford Courant",
         "score_norm": 0.30205535078403206,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 60059,
@@ -3146,7 +3366,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "unknown"
       },
       {
         "poll_id": 60060,
@@ -3160,7 +3381,8 @@
         "sponsored": "Yes",
         "sponsors": "Innovation Ohio",
         "score_norm": 0.34998356884653303,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B"
       },
       {
         "poll_id": 60063,
@@ -3174,7 +3396,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "unknown"
       },
       {
         "poll_id": 60067,
@@ -3188,7 +3411,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.47074273149279255,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "unknown"
       },
       {
         "poll_id": 60067,
@@ -3202,7 +3426,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.6637423386612187,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "unknown"
       },
       {
         "poll_id": 60067,
@@ -3216,7 +3441,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.5247171336206897,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "unknown"
       },
       {
         "poll_id": 60067,
@@ -3230,7 +3456,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.7389427384540197,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "unknown"
       },
       {
         "poll_id": 60067,
@@ -3244,7 +3471,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.697944649215968,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "unknown"
       },
       {
         "poll_id": 60087,
@@ -3258,7 +3486,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.47074273149279255,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 60087,
@@ -3272,7 +3501,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.697944649215968,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 60089,
@@ -3286,7 +3516,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.47074273149279255,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B"
       },
       {
         "poll_id": 60089,
@@ -3300,7 +3531,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.6637423386612187,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B"
       },
       {
         "poll_id": 60089,
@@ -3314,7 +3546,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.5247171336206897,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B"
       },
       {
         "poll_id": 60089,
@@ -3328,7 +3561,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.7389427384540197,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B"
       },
       {
         "poll_id": 60089,
@@ -3342,7 +3576,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.697944649215968,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B"
       },
       {
         "poll_id": 60106,
@@ -3356,7 +3591,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 61983,
@@ -3370,7 +3606,8 @@
         "sponsored": "Yes",
         "sponsors": "Minneapolis Star Tribune",
         "score_norm": 0.5292572685072074,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B+"
       },
       {
         "poll_id": 61983,
@@ -3384,7 +3621,8 @@
         "sponsored": "Yes",
         "sponsors": "Minneapolis Star Tribune",
         "score_norm": 0.4752828663793102,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B+"
       },
       {
         "poll_id": 61983,
@@ -3398,7 +3636,8 @@
         "sponsored": "Yes",
         "sponsors": "Minneapolis Star Tribune",
         "score_norm": 0.2610572615459803,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B+"
       },
       {
         "poll_id": 61983,
@@ -3412,7 +3651,8 @@
         "sponsored": "Yes",
         "sponsors": "Minneapolis Star Tribune",
         "score_norm": 0.30205535078403206,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B+"
       },
       {
         "poll_id": 62228,
@@ -3426,7 +3666,8 @@
         "sponsored": "Yes",
         "sponsors": "KGTV-TV (California) | KABC-TV (California) | San Diego Union-Tribune",
         "score_norm": 0.5292572685072074,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A"
       },
       {
         "poll_id": 62228,
@@ -3440,7 +3681,8 @@
         "sponsored": "Yes",
         "sponsors": "KGTV-TV (California) | KABC-TV (California) | San Diego Union-Tribune",
         "score_norm": 0.3362576613387814,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A"
       },
       {
         "poll_id": 62228,
@@ -3454,7 +3696,8 @@
         "sponsored": "Yes",
         "sponsors": "KGTV-TV (California) | KABC-TV (California) | San Diego Union-Tribune",
         "score_norm": 0.4752828663793102,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A"
       },
       {
         "poll_id": 62228,
@@ -3468,7 +3711,8 @@
         "sponsored": "Yes",
         "sponsors": "KGTV-TV (California) | KABC-TV (California) | San Diego Union-Tribune",
         "score_norm": 0.2610572615459803,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A"
       },
       {
         "poll_id": 62228,
@@ -3482,7 +3726,8 @@
         "sponsored": "Yes",
         "sponsors": "KGTV-TV (California) | KABC-TV (California) | San Diego Union-Tribune",
         "score_norm": 0.30205535078403206,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A"
       },
       {
         "poll_id": 62230,
@@ -3496,7 +3741,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.47074273149279255,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A/B"
       },
       {
         "poll_id": 62230,
@@ -3510,7 +3756,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A/B"
       },
       {
         "poll_id": 62230,
@@ -3524,7 +3771,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.697944649215968,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A/B"
       },
       {
         "poll_id": 62431,
@@ -3538,7 +3786,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.47074273149279255,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A/B"
       },
       {
         "poll_id": 62431,
@@ -3552,7 +3801,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.7389427384540197,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A/B"
       },
       {
         "poll_id": 62431,
@@ -3566,7 +3816,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A/B"
       },
       {
         "poll_id": 62431,
@@ -3580,7 +3831,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.697944649215968,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A/B"
       },
       {
         "poll_id": 62508,
@@ -3594,7 +3846,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 62525,
@@ -3608,7 +3861,8 @@
         "sponsored": "Yes",
         "sponsors": "Northwest Progressive Institute",
         "score_norm": 0.5292572685072074,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B"
       },
       {
         "poll_id": 62525,
@@ -3622,7 +3876,8 @@
         "sponsored": "Yes",
         "sponsors": "Northwest Progressive Institute",
         "score_norm": 0.2610572615459803,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B"
       },
       {
         "poll_id": 62525,
@@ -3636,7 +3891,8 @@
         "sponsored": "Yes",
         "sponsors": "Northwest Progressive Institute",
         "score_norm": 0.30205535078403206,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B"
       },
       {
         "poll_id": 62530,
@@ -3650,7 +3906,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A+"
       },
       {
         "poll_id": 62538,
@@ -3664,7 +3921,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.47074273149279255,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 62538,
@@ -3678,7 +3936,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.7389427384540197,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 62538,
@@ -3692,7 +3951,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.697944649215968,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 62539,
@@ -3706,7 +3966,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 62541,
@@ -3720,7 +3981,8 @@
         "sponsored": "Yes",
         "sponsors": "Texas Tribune | University of Texas",
         "score_norm": 0.34998356884653303,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B-"
       },
       {
         "poll_id": 62548,
@@ -3734,7 +3996,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A+"
       },
       {
         "poll_id": 62549,
@@ -3748,7 +4011,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A+"
       },
       {
         "poll_id": 62550,
@@ -3762,7 +4026,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A+"
       },
       {
         "poll_id": 62551,
@@ -3776,7 +4041,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A+"
       },
       {
         "poll_id": 62552,
@@ -3790,7 +4056,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A+"
       },
       {
         "poll_id": 62553,
@@ -3804,7 +4071,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.47074273149279255,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A+"
       },
       {
         "poll_id": 62553,
@@ -3818,7 +4086,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.7389427384540197,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A+"
       },
       {
         "poll_id": 62608,
@@ -3832,7 +4101,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.47074273149279255,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 62608,
@@ -3846,7 +4116,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.6637423386612187,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 62608,
@@ -3860,7 +4131,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.5247171336206897,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 62608,
@@ -3874,7 +4146,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.7389427384540197,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 62608,
@@ -3888,7 +4161,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.697944649215968,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 62616,
@@ -3902,7 +4176,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "C"
       },
       {
         "poll_id": 62621,
@@ -3916,7 +4191,8 @@
         "sponsored": "Yes",
         "sponsors": "Morning Call",
         "score_norm": 0.5292572685072074,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A+"
       },
       {
         "poll_id": 62621,
@@ -3930,7 +4206,8 @@
         "sponsored": "Yes",
         "sponsors": "Morning Call",
         "score_norm": 0.2610572615459803,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A+"
       },
       {
         "poll_id": 62621,
@@ -3944,7 +4221,8 @@
         "sponsored": "Yes",
         "sponsors": "Morning Call",
         "score_norm": 0.30205535078403206,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A+"
       },
       {
         "poll_id": 62628,
@@ -3958,7 +4236,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 62629,
@@ -3972,7 +4251,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.47074273149279255,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 62629,
@@ -3986,7 +4266,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.6637423386612187,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 62629,
@@ -4000,7 +4281,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.7389427384540197,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 62629,
@@ -4014,7 +4296,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.697944649215968,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 62645,
@@ -4028,7 +4311,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 62662,
@@ -4042,7 +4326,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "unknown"
       },
       {
         "poll_id": 62666,
@@ -4056,7 +4341,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.47074273149279255,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "unknown"
       },
       {
         "poll_id": 62666,
@@ -4070,7 +4356,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.6637423386612187,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "unknown"
       },
       {
         "poll_id": 62666,
@@ -4084,7 +4371,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.7389427384540197,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "unknown"
       },
       {
         "poll_id": 62666,
@@ -4098,7 +4386,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.697944649215968,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "unknown"
       },
       {
         "poll_id": 62668,
@@ -4112,7 +4401,8 @@
         "sponsored": "Yes",
         "sponsors": "WXIA-TV",
         "score_norm": 0.34998356884653303,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A"
       },
       {
         "poll_id": 62674,
@@ -4126,7 +4416,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A/B"
       },
       {
         "poll_id": 62978,
@@ -4140,7 +4431,8 @@
         "sponsored": "Yes",
         "sponsors": "7News",
         "score_norm": 0.5292572685072074,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 62978,
@@ -4154,7 +4446,8 @@
         "sponsored": "Yes",
         "sponsors": "7News",
         "score_norm": 0.3362576613387814,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 62978,
@@ -4168,7 +4461,8 @@
         "sponsored": "Yes",
         "sponsors": "7News",
         "score_norm": 0.2610572615459803,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 62978,
@@ -4182,7 +4476,8 @@
         "sponsored": "Yes",
         "sponsors": "7News",
         "score_norm": 0.34998356884653303,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 62980,
@@ -4196,7 +4491,8 @@
         "sponsored": "Yes",
         "sponsors": "KGTV-TV (California) | San Diego Union-Tribune",
         "score_norm": 0.5292572685072074,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A"
       },
       {
         "poll_id": 62980,
@@ -4210,7 +4506,8 @@
         "sponsored": "Yes",
         "sponsors": "KGTV-TV (California) | San Diego Union-Tribune",
         "score_norm": 0.4752828663793102,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A"
       },
       {
         "poll_id": 62980,
@@ -4224,7 +4521,8 @@
         "sponsored": "Yes",
         "sponsors": "KGTV-TV (California) | San Diego Union-Tribune",
         "score_norm": 0.3362576613387814,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A"
       },
       {
         "poll_id": 62980,
@@ -4238,7 +4536,8 @@
         "sponsored": "Yes",
         "sponsors": "KGTV-TV (California) | San Diego Union-Tribune",
         "score_norm": 0.4752828663793102,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A"
       },
       {
         "poll_id": 62980,
@@ -4252,7 +4551,8 @@
         "sponsored": "Yes",
         "sponsors": "KGTV-TV (California) | San Diego Union-Tribune",
         "score_norm": 0.2610572615459803,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A"
       },
       {
         "poll_id": 62980,
@@ -4266,7 +4566,8 @@
         "sponsored": "Yes",
         "sponsors": "KGTV-TV (California) | San Diego Union-Tribune",
         "score_norm": 0.30205535078403206,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A"
       },
       {
         "poll_id": 62992,
@@ -4280,7 +4581,8 @@
         "sponsored": "Yes",
         "sponsors": "Democratic Policy Institute",
         "score_norm": 0.34998356884653303,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "unknown"
       },
       {
         "poll_id": 63024,
@@ -4294,7 +4596,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 63026,
@@ -4308,7 +4611,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "C/D"
       },
       {
         "poll_id": 63027,
@@ -4322,7 +4626,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "C/D"
       },
       {
         "poll_id": 63028,
@@ -4336,7 +4641,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "C/D"
       },
       {
         "poll_id": 63060,
@@ -4350,7 +4656,8 @@
         "sponsored": "Yes",
         "sponsors": "7News",
         "score_norm": 0.34998356884653303,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 63083,
@@ -4364,7 +4671,8 @@
         "sponsored": "Yes",
         "sponsors": "CNN",
         "score_norm": 0.5292572685072074,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A/B"
       },
       {
         "poll_id": 63083,
@@ -4378,7 +4686,8 @@
         "sponsored": "Yes",
         "sponsors": "CNN",
         "score_norm": 0.3362576613387814,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A/B"
       },
       {
         "poll_id": 63083,
@@ -4392,7 +4701,8 @@
         "sponsored": "Yes",
         "sponsors": "CNN",
         "score_norm": 0.2610572615459803,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A/B"
       },
       {
         "poll_id": 63083,
@@ -4406,7 +4716,8 @@
         "sponsored": "Yes",
         "sponsors": "CNN",
         "score_norm": 0.30205535078403206,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A/B"
       },
       {
         "poll_id": 63084,
@@ -4420,7 +4731,8 @@
         "sponsored": "Yes",
         "sponsors": "CNN",
         "score_norm": 0.34998356884653303,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A/B"
       },
       {
         "poll_id": 63090,
@@ -4434,7 +4746,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A/B"
       },
       {
         "poll_id": 63160,
@@ -4448,7 +4761,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 63202,
@@ -4462,7 +4776,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B+"
       },
       {
         "poll_id": 63203,
@@ -4476,7 +4791,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B+"
       },
       {
         "poll_id": 63224,
@@ -4490,7 +4806,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.47074273149279255,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 63224,
@@ -4504,7 +4821,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.6637423386612187,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 63224,
@@ -4518,7 +4836,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.7389427384540197,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 63224,
@@ -4532,7 +4851,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.697944649215968,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 63233,
@@ -4546,7 +4866,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B"
       },
       {
         "poll_id": 63234,
@@ -4560,7 +4881,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B"
       },
       {
         "poll_id": 63238,
@@ -4574,7 +4896,8 @@
         "sponsored": "Yes",
         "sponsors": "Detroit News | WDIV-TV",
         "score_norm": 0.5292572685072074,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 63238,
@@ -4588,7 +4911,8 @@
         "sponsored": "Yes",
         "sponsors": "Detroit News | WDIV-TV",
         "score_norm": 0.4752828663793102,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 63238,
@@ -4602,7 +4926,8 @@
         "sponsored": "Yes",
         "sponsors": "Detroit News | WDIV-TV",
         "score_norm": 0.3362576613387814,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 63238,
@@ -4616,7 +4941,8 @@
         "sponsored": "Yes",
         "sponsors": "Detroit News | WDIV-TV",
         "score_norm": 0.2610572615459803,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 63238,
@@ -4630,7 +4956,8 @@
         "sponsored": "Yes",
         "sponsors": "Detroit News | WDIV-TV",
         "score_norm": 0.30205535078403206,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 63240,
@@ -4644,7 +4971,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B+"
       },
       {
         "poll_id": 63245,
@@ -4658,7 +4986,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.47074273149279255,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 63245,
@@ -4672,7 +5001,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.6637423386612187,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 63245,
@@ -4686,7 +5016,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.7389427384540197,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 63245,
@@ -4700,7 +5031,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.697944649215968,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 63246,
@@ -4714,7 +5046,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.47074273149279255,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 63246,
@@ -4728,7 +5061,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.6637423386612187,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 63246,
@@ -4742,7 +5076,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.7389427384540197,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 63246,
@@ -4756,7 +5091,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.697944649215968,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A-"
       },
       {
         "poll_id": 63255,
@@ -4770,7 +5106,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.47074273149279255,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 63255,
@@ -4784,7 +5121,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.6637423386612187,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 63255,
@@ -4798,7 +5136,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.7389427384540197,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 63255,
@@ -4812,7 +5151,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.697944649215968,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 63277,
@@ -4826,7 +5166,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.47074273149279255,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B+"
       },
       {
         "poll_id": 63277,
@@ -4840,7 +5181,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.5247171336206897,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B+"
       },
       {
         "poll_id": 63277,
@@ -4854,7 +5196,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.6637423386612187,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B+"
       },
       {
         "poll_id": 63277,
@@ -4868,7 +5211,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.7389427384540197,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B+"
       },
       {
         "poll_id": 63277,
@@ -4882,7 +5226,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.697944649215968,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B+"
       },
       {
         "poll_id": 63280,
@@ -4896,7 +5241,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.47074273149279255,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 63280,
@@ -4910,7 +5256,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.6637423386612187,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 63280,
@@ -4924,7 +5271,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.7389427384540197,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 63280,
@@ -4938,7 +5286,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.697944649215968,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 63282,
@@ -4952,7 +5301,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A/B"
       },
       {
         "poll_id": 63283,
@@ -4966,7 +5316,8 @@
         "sponsored": "Yes",
         "sponsors": "Club For Growth Action",
         "score_norm": 0.34998356884653303,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 63296,
@@ -4980,7 +5331,8 @@
         "sponsored": "Yes",
         "sponsors": "KGTV-TV (California) | KABC-TV (California) | San Diego Union-Tribune",
         "score_norm": 0.5292572685072074,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A"
       },
       {
         "poll_id": 63296,
@@ -4994,7 +5346,8 @@
         "sponsored": "Yes",
         "sponsors": "KGTV-TV (California) | KABC-TV (California) | San Diego Union-Tribune",
         "score_norm": 0.4752828663793102,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A"
       },
       {
         "poll_id": 63296,
@@ -5008,7 +5361,8 @@
         "sponsored": "Yes",
         "sponsors": "KGTV-TV (California) | KABC-TV (California) | San Diego Union-Tribune",
         "score_norm": 0.3362576613387814,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A"
       },
       {
         "poll_id": 63296,
@@ -5022,7 +5376,8 @@
         "sponsored": "Yes",
         "sponsors": "KGTV-TV (California) | KABC-TV (California) | San Diego Union-Tribune",
         "score_norm": 0.4752828663793102,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A"
       },
       {
         "poll_id": 63296,
@@ -5036,7 +5391,8 @@
         "sponsored": "Yes",
         "sponsors": "KGTV-TV (California) | KABC-TV (California) | San Diego Union-Tribune",
         "score_norm": 0.4752828663793102,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A"
       },
       {
         "poll_id": 63296,
@@ -5050,7 +5406,8 @@
         "sponsored": "Yes",
         "sponsors": "KGTV-TV (California) | KABC-TV (California) | San Diego Union-Tribune",
         "score_norm": 0.2610572615459803,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A"
       },
       {
         "poll_id": 63296,
@@ -5064,7 +5421,8 @@
         "sponsored": "Yes",
         "sponsors": "KGTV-TV (California) | KABC-TV (California) | San Diego Union-Tribune",
         "score_norm": 0.4752828663793102,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A"
       },
       {
         "poll_id": 63296,
@@ -5078,7 +5436,8 @@
         "sponsored": "Yes",
         "sponsors": "KGTV-TV (California) | KABC-TV (California) | San Diego Union-Tribune",
         "score_norm": 0.30205535078403206,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A"
       },
       {
         "poll_id": 63296,
@@ -5092,7 +5451,8 @@
         "sponsored": "Yes",
         "sponsors": "KGTV-TV (California) | KABC-TV (California) | San Diego Union-Tribune",
         "score_norm": 0.4752828663793102,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A"
       },
       {
         "poll_id": 63311,
@@ -5106,7 +5466,8 @@
         "sponsored": "Yes",
         "sponsors": "Florida Chamber of Commerce",
         "score_norm": 0.34998356884653303,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 63347,
@@ -5120,7 +5481,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A+"
       },
       {
         "poll_id": 63351,
@@ -5134,7 +5496,8 @@
         "sponsored": "Yes",
         "sponsors": "NBC News",
         "score_norm": 0.5292572685072074,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A+"
       },
       {
         "poll_id": 63351,
@@ -5148,7 +5511,8 @@
         "sponsored": "Yes",
         "sponsors": "NBC News",
         "score_norm": 0.3362576613387814,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A+"
       },
       {
         "poll_id": 63351,
@@ -5162,7 +5526,8 @@
         "sponsored": "Yes",
         "sponsors": "NBC News",
         "score_norm": 0.2610572615459803,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A+"
       },
       {
         "poll_id": 63351,
@@ -5176,7 +5541,8 @@
         "sponsored": "Yes",
         "sponsors": "NBC News",
         "score_norm": 0.30205535078403206,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A+"
       },
       {
         "poll_id": 63365,
@@ -5190,7 +5556,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.47074273149279255,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 63365,
@@ -5204,7 +5571,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.5247171336206897,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 63365,
@@ -5218,7 +5586,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.6637423386612187,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 63365,
@@ -5232,7 +5601,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.7389427384540197,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 63365,
@@ -5246,7 +5616,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.697944649215968,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 63381,
@@ -5260,7 +5631,8 @@
         "sponsored": "Yes",
         "sponsors": "Club For Growth Action",
         "score_norm": 0.34998356884653303,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 63389,
@@ -5274,7 +5646,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "unknown"
       },
       {
         "poll_id": 63390,
@@ -5288,7 +5661,8 @@
         "sponsored": "Yes",
         "sponsors": "Uniting Missouri PAC",
         "score_norm": 0.34998356884653303,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A/B"
       },
       {
         "poll_id": 63391,
@@ -5302,7 +5676,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 63405,
@@ -5316,7 +5691,8 @@
         "sponsored": "Yes",
         "sponsors": "Deseret News | Hinckley Institute of Politics",
         "score_norm": 0.34998356884653303,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "C+"
       },
       {
         "poll_id": 63422,
@@ -5330,7 +5706,8 @@
         "sponsored": "Yes",
         "sponsors": "Dallas Morning News",
         "score_norm": 0.34998356884653303,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 63464,
@@ -5344,7 +5721,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B+"
       },
       {
         "poll_id": 63466,
@@ -5358,7 +5736,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 63470,
@@ -5372,7 +5751,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "unknown"
       },
       {
         "poll_id": 63477,
@@ -5386,7 +5766,8 @@
         "sponsored": "Yes",
         "sponsors": "American Conservative Union",
         "score_norm": 0.34998356884653303,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "C/D"
       },
       {
         "poll_id": 63509,
@@ -5400,7 +5781,8 @@
         "sponsored": "Yes",
         "sponsors": "SMART Transportation Division",
         "score_norm": 0.34998356884653303,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 63513,
@@ -5414,7 +5796,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "unknown"
       },
       {
         "poll_id": 63515,
@@ -5428,7 +5811,8 @@
         "sponsored": "Yes",
         "sponsors": "WBRC-TV | Alabama Daily News | WAFF-TV",
         "score_norm": 0.34998356884653303,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B+"
       },
       {
         "poll_id": 63578,
@@ -5442,7 +5826,8 @@
         "sponsored": "Yes",
         "sponsors": "Wisconsin Manufacturers and Commerce",
         "score_norm": 0.5292572685072074,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 63578,
@@ -5456,7 +5841,8 @@
         "sponsored": "Yes",
         "sponsors": "Wisconsin Manufacturers and Commerce",
         "score_norm": 0.2610572615459803,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 63798,
@@ -5470,7 +5856,8 @@
         "sponsored": "Yes",
         "sponsors": "Texas Tribune | University of Texas",
         "score_norm": 0.34998356884653303,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "B-"
       },
       {
         "poll_id": 64222,
@@ -5484,7 +5871,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.650016431153467,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "B/C"
       },
       {
         "poll_id": 64343,
@@ -5498,7 +5886,8 @@
         "sponsored": "Yes",
         "sponsors": "WRAL News",
         "score_norm": 0.34998356884653303,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A"
       },
       {
         "poll_id": 64346,
@@ -5512,7 +5901,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.47074273149279255,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A/B"
       },
       {
         "poll_id": 64346,
@@ -5526,7 +5916,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.5247171336206897,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A/B"
       },
       {
         "poll_id": 64346,
@@ -5540,7 +5931,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.6637423386612187,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A/B"
       },
       {
         "poll_id": 64346,
@@ -5554,7 +5946,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.5247171336206897,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A/B"
       },
       {
         "poll_id": 64346,
@@ -5568,7 +5961,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.7389427384540197,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A/B"
       },
       {
         "poll_id": 64346,
@@ -5582,7 +5976,8 @@
         "sponsored": "No",
         "sponsors": null,
         "score_norm": 0.697944649215968,
-        "percent": 0.6292134831460691
+        "percent": 0.6292134831460691,
+        "fte_grade": "A/B"
       },
       {
         "poll_id": 64352,
@@ -5596,7 +5991,8 @@
         "sponsored": "Yes",
         "sponsors": "KGTV-TV (California) | KABC-TV (California) | San Diego Union-Tribune",
         "score_norm": 0.5292572685072074,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A"
       },
       {
         "poll_id": 64352,
@@ -5610,7 +6006,8 @@
         "sponsored": "Yes",
         "sponsors": "KGTV-TV (California) | KABC-TV (California) | San Diego Union-Tribune",
         "score_norm": 0.4752828663793102,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A"
       },
       {
         "poll_id": 64352,
@@ -5624,7 +6021,8 @@
         "sponsored": "Yes",
         "sponsors": "KGTV-TV (California) | KABC-TV (California) | San Diego Union-Tribune",
         "score_norm": 0.3362576613387814,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A"
       },
       {
         "poll_id": 64352,
@@ -5638,7 +6036,8 @@
         "sponsored": "Yes",
         "sponsors": "KGTV-TV (California) | KABC-TV (California) | San Diego Union-Tribune",
         "score_norm": 0.2610572615459803,
-        "percent": 0.3707865168539334
+        "percent": 0.3707865168539334,
+        "fte_grade": "A"
       }
     ]
   }

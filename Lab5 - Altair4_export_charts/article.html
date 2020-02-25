@@ -1,0 +1,421 @@
+<!DOCTYPE HTML>
+<!--
+	Transitive by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>Transitive by TEMPLATED</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header" class="alt">
+				<div class="logo"><a href="article.html">Polls Speak! <span>by theoliao</span></a></div>
+				<a href="#menu" class="toggle"><span>Menu</span></a>
+			</header>
+
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="article.html">Home</a></li>
+					<li><a href="#one">Introduction</a></li>
+					<li><a href="#three">Who is most likely to win Trump?</a></li>
+					<li><a href="#five">A closer look at the victories</a></li>
+					<li><a href="#seven">Distributions of the polls</a></li>
+					<li><a href="documentation.html">Documentation</a></li>
+				</ul>
+			</nav>
+
+		<!-- Banner -->
+		<!--
+			To use a video as your background, set data-video to the name of your video without
+			its extension (eg. images/banner). Your video must be available in both .mp4 and .webm
+			formats to work correctly.
+		-->
+			<section id="banner" data-video="images/banner">
+				<div class="inner">
+					<h1>Polls Speak!</h1>
+					<p>Explore Data from Presidential General Election Polls 2020.</p>
+					<a href="#one" class="button special scrolly">Get Started</a>
+				</div>
+			</section>
+
+		<!-- One -->
+			<section id="one" class="wrapper style2">
+				<div class="inner">
+					<div>
+						<div class="box">
+							<div class="image fit">
+								<img src="images/pic01.jpg" alt="" />
+							</div>
+							<div class="content">
+								<header class="align-center">
+									<h2>Introduction</h2>
+									<!-- <p>maecenas feugiat ex purus, quis volutpat lacus placerat</p> -->
+								</header>
+								<hr />
+								<p>US election 2020 is coming soon. Since the end of 2018, thousands of polls on this cycle have been taking place all across the US. 
+									Exploring the data about these polls gathered and published in <a href="https://projects.fivethirtyeight.com/polls-page/president_polls.csv">fivethirtyeight</a> (and accessed on February 18th), 
+									some intresting facts are found and shown here! </p>
+								
+								<p>
+									Befor moving into the interesting insights, I would like to show some details about the data first. The dataset involves data of every poll,
+									which consists of detailed questions about preference to presidential candidates. For each question, there are multiple choices (of preferred candidates), and 
+									the supporting rate for each choice is given. The candidate who has the greatest supporting rate is considered to win in one question. 
+									And the candidate/party that wins most questions in a poll is considered to win the poll. When n candidates all wins some equal most number of 
+									polls, each of them is considered to win 1/n of the poll. In this way, we can to some extent count the candidates' wins.
+								</p>
+
+								<p> <span style="color:red">Note:</span> There is inevitably some limitation in this scoring scale. For instance, Mr. Trump, as the only popular Republican candidate and current US president,
+								are much more likely to be one choice of a question, which would reasonably lead to more wins in questions and then polls. 
+								To make more sense, it would be wise not to directly compare Mr. Trump with other candidates based on count of wins. 
+								Rather, it would make more sense to make partison comparison or compare within Democrats. 
+								</p>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+
+		<!-- Two -->
+			<section id="two" class="wrapper style3">
+				<div class="inner">
+					<div id="flexgrid">
+						<div>
+							<header>
+								<h3>Who is most likely to win Trump?</h3>
+							</header>
+							<p>
+								Compare Democratic candidates' records with Trump's to find 
+								the one most likely to win Trump, as well as other underlying facts. 
+							</p>
+							<ul class="actions">
+								<li><a href="#three" class="button alt">Learn More</a></li>
+							</ul>
+						</div>
+						<div>
+							<header>
+								<h3>A closer look at the victories</h3>
+							</header>
+							<p>
+								Take a closer look at the victories of the candidates by taking the consideration
+								of the sponsoring and grades of the polls to find some interesting facts. 
+							</p>
+							<ul class="actions">
+								<li><a href="#five" class="button alt">Learn More</a></li>
+							</ul>
+						</div>
+						<div>
+							<header>
+								<h3>Distributions of the polls</h3>
+							</header>
+							<p>
+								By further researching on the geographical and temporal distributions of the
+								polls, what can we find?
+							</p>
+							<ul class="actions">
+								<li><a href="#seven" class="button alt">Learn More</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
+		
+			<section id="three" class="wrapper style2">
+				<div class="inner">
+					<div>
+						<div class="box">
+							<div class="image fit">
+								<img src="images/pic02.jpg" alt="" />
+							</div>
+							<div class="content">
+								<header class="align-center">
+									<h2>Who is most likely to win Trump?</h2>
+									<!-- <p>maecenas feugiat ex purus, quis volutpat lacus placerat</p> -->
+								</header>
+								<hr />
+								<p>Donald trump, the current US President and republican candidate, is one of the clear favorites.
+									The Democrats, on the other hand, are still competing against each other for candidates.
+									Among them, 
+									Bernie Sanders,
+									Pete Buttigieg,
+									Elizabeth Warren
+									, and Joe Biden are most likely to become opponents of Mr Trump. 
+									Here, we are going to compare their approval ratings (with Mr trump's) to find out who is most likely to win. </p>
+								
+								<h3>Candidates' counts of wins</h3>
+								<p> 
+									The first chart below shows the candidates' count of wins over time. Since Trump as a most common choice in questions is much more likely to 
+									have more wins, it's unfair to compare his wins directly with the Democrats'. So his line is set with some opacity and added just as a reference. 
+									Among the 4 Democratic candidates, Joe Biden seems to win more most of the time. Yet in recent months, he similar counts of wins to Bernie Sanders. 
+									Another interesting finding is that, Trump had fewer counts of wins than both Biden and Sanders in September 2019. 
+									Considering his big advantage as a popular option, this drop might result from some particular events. 
+									Also, it's easy to notice that the counts for all Democrats greatly droped while that of Trump's climbed in December 2019, 
+									which is likely to be led from some other particular events.
+								</p>
+								
+								<div class="vis" id="vis1" width="1600px"></div>
+								
+								<h3>Select a candidate from the legend to compare with Trump</h3>
+								<p> 
+									By selecting Democratic candidates in the legend, we can further compare their performances in polls directly with Donald Trump in the second chart. 
+									The chart shows the selected candidate's average supporting rate over Trump in every month. (And when all the 4 Democrats are selected, it shows their overall average support over Trump.)
+									As we can see, although Biden and Sanders had higher supporting rate than Trump most of the time in the past year, Trump is more favored 
+									in the recent month. When directly compared with Trump, Biden seems to be the best in the past. As for Buttigieg, he has never been directly 
+									compared with Trump in any recorded question. 
+								</p>
+								
+
+								<script type="text/javascript">
+   									let jsonSpec="chart1.json";
+							
+   									vegaEmbed('#vis1', jsonSpec,{theme: 'latimes',"renderer":"svg"}).then(function(result) {
+   										}).catch(console.error);
+								</script>
+
+							
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		
+		<!-- Two -->
+		<section id="two" class="wrapper style3">
+			<div class="inner">
+				<div id="flexgrid">
+					<div>
+						<header>
+							<h3>Who is most likely to win Trump?</h3>
+						</header>
+						<p>
+							Compare Democratic candidates' records with Trump's to find 
+							the one most likely to win Trump, as well as other underlying facts. 
+						</p>
+						<ul class="actions">
+							<li><a href="#three" class="button alt">Learn More</a></li>
+						</ul>
+					</div>
+					<div>
+						<header>
+							<h3>A closer look at the victories</h3>
+						</header>
+						<p>
+							Take a closer look at the victories of the candidates by taking the consideration
+							of the sponsoring and grades of the polls to find some interesting facts. 
+						</p>
+						<ul class="actions">
+							<li><a href="#five" class="button alt">Learn More</a></li>
+						</ul>
+					</div>
+					<div>
+						<header>
+							<h3>Distributions of the polls</h3>
+						</header>
+						<p>
+							By further researching on the geographical and temporal distributions of the
+							polls, what can we find?
+						</p>
+						<ul class="actions">
+							<li><a href="#seven" class="button alt">Learn More</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+
+			<section id="five" class="wrapper style2">
+				<div class="inner">
+					<div>
+						<div class="box">
+							<div class="image fit">
+								<img src="images/pic03.jpg" alt="" />
+							</div>
+							<div class="content">
+								<header class="align-center">
+									<h2>A closer look at the victories</h2>
+									<!-- <p>maecenas feugiat ex purus, quis volutpat lacus placerat</p> -->
+								</header>
+								<hr />
+								<p>
+									In this section, we would like to take a closer look at the victories of every candidate and try to some underlying interesting facts.
+									Here by "victories", we mean the polls in which the candidate is the one (or at least one of those who) get[s] the highest supporting rate in the most number of 
+									questions.
+								</p>
+								<h3>Is sponsoring affecting the polls' results? </h3>
+								<p>
+									The left chart below shows the sponsoring rate of the "victories". With about 63% of all the polls unsponsored, it's easy to find that 
+									the sponsoring rate of Biden's victories is somehow abnormal. He has only 47% of all the polls he has won unsponsored! 
+									In contrast, Sanders, as another popular Democratic candidate, has 74% unsponsored victories. 
+									Though there is no evidence that sponsoring has influenced in any poll, the wide differences of the sponsoring
+									rates are still out of ordinary. 
+
+								</p>
+								<div id="vis2" width="300px"></div>
+								<h3>Grades of the polls </h3>
+								<p>
+									Further select a candidate's bar in the left chart, 
+									we can check the grades of the polls he/she wins shown in the right. 
+									And when all bars are selected, it shows the overall distribution of grades, ranging from D to A+.
+									As we can see, most of the recorded polls are in the grade B/C or A-. Comparing with others' grades distribution,
+									it's also apparent that Donald Trump has much more lower (especially B/C) graded polls than others.  
+									This could imply that his advantage might not be so great as some people think.
+
+								</p>
+
+
+								<script type="text/javascript">
+   									let jsonSpec2="chart2.json";
+							
+   									vegaEmbed('#vis2', jsonSpec2,{theme: 'latimes',"renderer":"svg"}).then(function(result) {
+   										}).catch(console.error);
+								</script>
+
+							
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			
+		<!-- Two -->
+		<section id="two" class="wrapper style3">
+			<div class="inner">
+				<div id="flexgrid">
+					<div>
+						<header>
+							<h3>Who is most likely to win Trump?</h3>
+						</header>
+						<p>
+							Compare Democratic candidates' records with Trump's to find 
+							the one most likely to win Trump, as well as other underlying facts. 
+						</p>
+						<ul class="actions">
+							<li><a href="#three" class="button alt">Learn More</a></li>
+						</ul>
+					</div>
+					<div>
+						<header>
+							<h3>A closer look at the victories</h3>
+						</header>
+						<p>
+							Take a closer look at the victories of the candidates by taking the consideration
+							of the sponsoring and grades of the polls to find some interesting facts. 
+						</p>
+						<ul class="actions">
+							<li><a href="#five" class="button alt">Learn More</a></li>
+						</ul>
+					</div>
+					<div>
+						<header>
+							<h3>Distributions of the polls</h3>
+						</header>
+						<p>
+							By further researching on the geographical and temporal distributions of the
+							polls, what can we find?
+						</p>
+						<ul class="actions">
+							<li><a href="#seven" class="button alt">Learn More</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+
+			<section id="seven" class="wrapper style2">
+				<div class="inner">
+					<div>
+						<div class="box">
+							<div class="image fit">
+								<img src="images/pic04.jpg" alt="" />
+							</div>
+							<div class="content">
+								<header class="align-center">
+									<h2>Distributions of the polls</h2>
+									<!-- <p>maecenas feugiat ex purus, quis volutpat lacus placerat</p> -->
+								</header>
+								<hr />
+								<p>
+									In this section, we further research on the geographical and temporal distribution of the polls.
+								</p>
+								<h3>Geographical distribution</h3>
+								<p> 
+									In the left chart below, we show the distribution of polls and winning parts by state. Notice that 
+									the states are ordered by the number of electoral votes, which implies the importance of the state in the votes.
+									It's clear that the number of polls does not completely match the number of electoral votes. Especially for California
+									and New York, with the most and the third most number of electoral votes, there are not as many polls there as expected. 
+									One possible reason is that, both of the states have clear tendency towards the Democrats, 
+									which raises no interests in the media.
+								</p>
+								<div id="vis3" width="300px"></div>
+								<h3>Temporal distribution</h3>
+								<p> 
+									Further select a bar in the left chart, the temporal distribution of polls in the corresponding state will be
+									presented in the right chart above. 
+									Though overall there is some unequality 
+									in the diribution, generally in every state the polls 
+									are uniformly distributed over time. 
+									Yet we can find that compared to other states with a number of polls, 
+									Califonia didn't have a poll until August 2019, which is quite slow for 
+									a state with most number of electoral votes. 
+									And this might also be explained by its clear overaall leaning
+									to Democrats.
+		
+								</p>
+								<script type="text/javascript">
+   									let jsonSpec3="chart3.json";
+							
+   									vegaEmbed('#vis3', jsonSpec3,{theme: 'latimes',"renderer":"svg"}).then(function(result) {
+   										}).catch(console.error);
+								</script>
+
+							
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		
+			<section id="four" class="wrapper style3">
+				<div class="inner">
+
+					<header class="align-center">
+						<div class="copyright">
+							&copy;2020 theoliao. theoliao1998@gmail.com<br/>
+							&copy; Untitled Design: <a href="https://templated.co/">TEMPLATED</a>.
+						</div>	
+					</header>
+
+				</div>
+			</section>
+
+		<!-- Footer -->
+			<!-- <footer id="footer" class="wrapper" style="height: 20px;">
+				<div class="inner">
+					<div class="copyright">
+						&copy;2020 theoliao. theoliao1998@gmail.com<br/>
+						&copy; Untitled Design: <a href="https://templated.co/">TEMPLATED</a>.
+					</div>
+				</div>
+			</footer> -->
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
