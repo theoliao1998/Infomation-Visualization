@@ -10,6 +10,20 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="./styles/d3.slider.css" />
 <style>
+body{
+    overflow: auto;
+    -ms-overflow-style: none; /* IE 11 */
+    scrollbar-width: none; /* Firefox 64 */
+}
+
+@-moz-document url-prefix() {
+    html,body{overflow: hidden !important;}
+}
+
+.background {
+  fill: none;
+  pointer-events: all; 
+}
 
 svg{
   background: white;
@@ -17,8 +31,11 @@ svg{
 
 .country{
   fill: #cccccc;
-  stroke: #333333;
-  stroke-width: 0.5;
+  stroke: #fff;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  cursor: pointer;
+  stroke-width: .3;
 }
 
 .selected{
@@ -27,7 +44,6 @@ svg{
 
 .site {
 	opacity: 0.5;
-  fill: red;
 }
 
 #slider3{
@@ -44,10 +60,43 @@ svg{
   color: black;
   position: absolute;
 }
+#map{
+  position: absolute; 
+}
+#vis{
+  /* position: absolute;  */
+      top: 100; 
+      left: 100; 
+      width: 100%; 
+      z-index: 50;
+}
+#container {
+      position: relative;
+      z-index: 100;
+      scrollbar-width: none;
+}
 
+.panel {
+  width: 100%;
+  padding-left: 20px;
+  padding-top: 25vh;
+  padding-bottom: 25vh;
+}
+.panel p {
+  padding-right: 50%;
+}
+.panel:first-child {
+  padding-top: 35vh;
+}
+.panel:last-child {
+  padding-bottom: 45vh;
+}
+
+::-webkit-scrollbar { display: none; }
 
 </style>
 </head>
+<div id='vis'>
 <div id='map'></div>
 <div id="tooltip">
   Province/State: <span id="p_s" class="info"></span><br> 
@@ -58,6 +107,38 @@ svg{
   Accumulated Recovered: <span id="recovered" class="info"></span><br> 
 </div>
 <div id="slider3"></div>
+</div>
+<div id="container" style="height: 100vh; overflow: scroll">
+  <div id="content">
+    <div class="panel">
+      <p>This is a block that illustrates some of the tricks I've learned while designing scroll narratives like <a href="www.r2d3.us/visual-intro-to-machine-learning-part-1/" target="_block">A Visual Introduction to Machine Learning</a> and <a href="http://letsfreecongress.org" target="_block">Let's Free Congress</a>. While the animations are much more complicated, the core mechanics are similar</p> <p><em>Let's get scrolling!</em></p>
+    </div>
+    <div class="panel">
+      <p>This is a block that illustrates some of the tricks I've learned while designing scroll narratives like <a href="www.r2d3.us/visual-intro-to-machine-learning-part-1/" target="_block">A Visual Introduction to Machine Learning</a> and <a href="http://letsfreecongress.org" target="_block">Let's Free Congress</a>. While the animations are much more complicated, the core mechanics are similar</p> <p><em>Let's get scrolling!</em></p>
+    </div>
+    <div class="panel">
+      <p>This is a block that illustrates some of the tricks I've learned while designing scroll narratives like <a href="www.r2d3.us/visual-intro-to-machine-learning-part-1/" target="_block">A Visual Introduction to Machine Learning</a> and <a href="http://letsfreecongress.org" target="_block">Let's Free Congress</a>. While the animations are much more complicated, the core mechanics are similar</p> <p><em>Let's get scrolling!</em></p>
+    </div>
+    <div class="panel">
+      <p>This is a block that illustrates some of the tricks I've learned while designing scroll narratives like <a href="www.r2d3.us/visual-intro-to-machine-learning-part-1/" target="_block">A Visual Introduction to Machine Learning</a> and <a href="http://letsfreecongress.org" target="_block">Let's Free Congress</a>. While the animations are much more complicated, the core mechanics are similar</p> <p><em>Let's get scrolling!</em></p>
+    </div>
+    <div class="panel">
+      <p>This is a block that illustrates some of the tricks I've learned while designing scroll narratives like <a href="www.r2d3.us/visual-intro-to-machine-learning-part-1/" target="_block">A Visual Introduction to Machine Learning</a> and <a href="http://letsfreecongress.org" target="_block">Let's Free Congress</a>. While the animations are much more complicated, the core mechanics are similar</p> <p><em>Let's get scrolling!</em></p>
+    </div>
+    
+    
+    <div class="panel">
+      <p>1. <strong>Pacing the Panels</strong>: These panels that contains the text are spaced according to the height of the window, such that just one paragraph is visible at a time.</p> 
+      <p>To achieve this in a responsive way, I use <code>vh</code> units to set the top and bottom padding on each panel. That way, the paragraphs are spaced correctly no matter the size of the screen.</p>
+    </div>
+    <div class="panel">
+      <p>2. <strong>Responsive Timing</strong>: The clock on the right hits 12 just as you finish scrolling, no matter what the screen size is. Getting the animation in sync with scroll requires using the dimensions of container and the screen as input in the animation scaling function.</p>
+      <p>The way this is achieved is through a callback on the <code>window.resize</code> handler. It reads in the relevant dimensions and feeds it back into the <code>.domain</code> of the <code>d3.scale</code> function.</p>
+    </div>
+  </div>
+</div>
+
+
 <body>
 <script src="https://d3js.org/d3.v3.min.js"></script>
 <script src="https://d3js.org/d3-queue.v3.min.js"></script>
@@ -85,14 +166,15 @@ function d3_rebind(target, source, method) {
 }
 
 var margin = {top: 50, right: 50, bottom: 50, left: 50},
-    width = 1000 - margin.left - margin.right,s
-    height = 400 - margin.top - margin.bottom;
+    width = 1500 - margin.left - margin.right,
+    height = 800;
 
 
 var svg = d3.select("#map").append("svg")
     .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
+    .attr("height", height);
 
+var color = d3.scale.linear().domain([0,1.5]).range(['green','red']);
     
 
 svg.append('rect')
@@ -100,7 +182,9 @@ svg.append('rect')
     .attr('height', height )
     .attr('fill', 'white');
 
-var g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+var g = svg.append("g").attr("width", width + margin.left + margin.right)
+    .attr("height", height)
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 d3.queue()
   .defer(d3.json,"world.topojson")
@@ -108,12 +192,14 @@ d3.queue()
 
 var projection = d3.geo.equirectangular();
 
+projection.scale(270);
+
 var path = d3.geoPath()
   .projection(projection);
 
 
 function ready(error, data){
-    console.log(data);
+    // console.log(data);
     var countries = topojson.feature(data, data.objects.countries).features;
 
     g.selectAll('.country')
@@ -121,8 +207,23 @@ function ready(error, data){
       .enter().append('path')
       .attr('class','country')
       .attr('d', path)
+      .attr("id", function(d) { 
+        // console.log(d);
+        return d["properties"]["name"]; })
       .on('click', function(d){
-        d3.select(this).classed('selected',!this.classList.contains("selected")) //if directly change 'fill', it will be overwritten by css
+        d3.select('.selected').classed('selected',false);
+        d3.select(this).classed('selected',true); //if directly change 'fill', it will be overwritten by css
+        var bounds = path.bounds(d),
+            dx = bounds[1][0] - bounds[0][0],
+            dy = bounds[1][1] - bounds[0][1],
+            x = (bounds[0][0] + bounds[1][0]) / 2,
+            y = (bounds[0][1] + bounds[1][1]) / 2,
+            scale = Math.max(1, Math.min(8, 0.9 / Math.max(dx / width, dy / height))),
+            translate = [width / 2 - scale * x, height / 2 - scale * y];
+
+        svg.transition()
+            .duration(3000)
+            .call(zoom.translate(translate).scale(scale).event);
       })
     
     var zoom = d3.behavior.zoom()
@@ -132,7 +233,7 @@ function ready(error, data){
         g.selectAll('path')
           .attr('d',path.projection(projection));
     });
-    svg.call(zoom);
+    // svg.call(zoom);
     
     d3.csv("./data/covid_19_clean_complete.csv")
     .row(function(d) {
@@ -141,10 +242,10 @@ function ready(error, data){
         "Country/Region":d["Country/Region"],
         lat: parseFloat(d.Lat),
         lng: parseFloat(d.Long),
-        date: moment(d.Date,"MM/DD/YYYY").unix(),
+        date: moment(d.Date,"MM/DD/YYYY").diff(moment('1/22/20',"MM/DD/YYYY"),'days'),
         number: parseFloat(d.Confirmed),
-        deaths: d.Deaths,
-        recovered: d.Recovered
+        deaths: parseFloat(d.Deaths),
+        recovered: parseFloat(d.Recovered)
       };
     })
     .get(function(err, rows) {
@@ -153,9 +254,11 @@ function ready(error, data){
       window.site_data = rows;
     });
 
+    setTimeout(function(){ document.getElementById('China').dispatchEvent(new MouseEvent("click")); }, 100);
     
 }
 
+var stored = {};
 
 
 var displaySites = function(data) {
@@ -172,11 +275,11 @@ var displaySites = function(data) {
       .attr("cy", function(d) {
         return projection([d.lng, d.lat])[1];
       })
-      .attr("r", function(d) {
-        // console.log(d.number);
-        return 0;
+      .attr('fill', function(d){
+        var value = d.recovered > 0 ? (d.deaths)/(d.recovered) : 0; 
+        return color(value)
       })
-      .transition().duration(400)
+      .transition().duration(10)
       .attr("r", function(d) {
         // console.log(d.number);
         return Math.sqrt(d.number) / 10;
@@ -186,7 +289,7 @@ var displaySites = function(data) {
           d3.select(this).style('opacity', '1'); 
           d3.select('#p_s').text(d["Province/State"]);
           d3.select('#c_r').text(d["Country/Region"]);
-          d3.select('#date').text(timeConverter(d.date));
+          d3.select('#date').text(d.Date);
           d3.select('#confirmed').text(d.number);
           d3.select('#deaths').text(d.deaths);
           d3.select('#recovered').text(d.recovered);
@@ -205,39 +308,27 @@ var displaySites = function(data) {
       
 
  sites.exit()
-    .transition().duration(200)
+    .attr('fill', function(d){
+        var value = d.recovered > 0 ? (d.deaths)/(d.recovered) : 0; 
+        return color(value)
+      })
+    .transition().duration(10)
     .attr("r", function(d) {
         return Math.sqrt(d.number) / 10;
       })
       .remove();
 };
 
-var minDateUnix = moment('1/22/20', "MM/DD/YYYY").unix();
-var maxDateUnix = moment('3/23/20', "MM/DD/YYYY").unix();
-var secondsInDay = 60 * 60 * 24;
+var minDate = 0;
+var maxDate = moment('3/23/20', "MM/DD/YYYY").diff(moment('1/22/20', "MM/DD/YYYY"),'days');
 
-function timeConverter(UNIX_timestamp){
-        var a = new Date(UNIX_timestamp * 1000);
-        var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-        var year = a.getFullYear();
-        var month = months[a.getMonth()];
-        var date = a.getDate();
-        var time = date + ' ' + month + ' ' + year ;
-        return time;
-}
-
-function sameDate(x,y){
-    var a =  new Date(x*1000);
-    var b =  new Date(y*1000);
-    return (a.getDate() == b.getDate()) && (a.getMonth() == b.getMonth());
-}
-
-d3.select('#slider3').call(d3.slider()
-  .axis(true).min(minDateUnix).max(maxDateUnix).step(secondsInDay)
+var myslider = d3.slider()
+  .axis(true).min(minDate).max(maxDate).step(1)
   .on("slide", function(evt, value) {
     // console.log('y:'+timeConverter(value));
     var newData = _(site_data).filter( function(site) {
-      return sameDate(site.date, value);
+      // console.log(site_data);
+      return site.date == Math.floor(value);
     })
     newData.sort(function (a, b){
       return d3.descending(a.number,b.number);
@@ -245,7 +336,48 @@ d3.select('#slider3').call(d3.slider()
     // console.log("New set size ", newData.length);
 
     displaySites(newData);
-  })
-);
+  });
+
+  d3.select('#slider3').call(myslider);
+
+var container = d3.select('#container');
+var content = d3.select('#content');
+WIDTH = window.innerWidth;
+HEIGHT = window.innerHeight;
+var SCROLL_LENGTH = content.node().getBoundingClientRect().height - HEIGHT;
+var scrollTop = 0;
+var newScrollTop = 0;
+container
+  		.on("scroll.scroller", function() {
+      	newScrollTop = container.node().scrollTop
+});
+
+var time = d3.scale.linear()
+    	.domain([0, SCROLL_LENGTH])
+    	.range([minDate, maxDate])
+      .clamp(true);
+
+var render = function() {
+    if (scrollTop !== newScrollTop) {
+      scrollTop = newScrollTop;
+      var val = time(scrollTop)
+      myslider.value(val);
+      var newData = _(site_data).filter( function(site) {
+      // console.log(site_data);
+        return site.date == Math.floor(val);
+      })
+      newData.sort(function (a, b){
+        return d3.descending(a.number,b.number);
+      })
+    // console.log("New set size ", newData.length);
+
+      displaySites(newData);
+  }
+  
+  window.requestAnimationFrame(render);
+}
+window.requestAnimationFrame(render);
+
+window.onresize = setDimensions
 
 </script>
